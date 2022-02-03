@@ -1,4 +1,4 @@
-# solid-hooks
+# solidjs-hooks
 
 A collection of useful SolidJS hooks.
 
