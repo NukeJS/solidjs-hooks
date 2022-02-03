@@ -30,7 +30,7 @@ SolidJS state hook that tracks a numeric value.
 #### Usage
 
 ```jsx
-import { useCounter } from 'solid-hooks';
+import { useCounter } from 'solidjs-hooks';
 
 const Demo = () => {
   const { count, increment, decrement, set, reset } = useCounter();
@@ -141,7 +141,7 @@ SolidJS state hook that tracks the value of a boolean.
 #### Usage
 
 ```jsx
-import { useToggle } from 'solid-hooks';
+import { useToggle } from 'solidjs-hooks';
 
 const Demo = () => {
   const [on, toggle] = useToggle();
