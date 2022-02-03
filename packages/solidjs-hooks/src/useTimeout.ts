@@ -5,10 +5,10 @@ function useTimeout(callback: () => void, delay: Accessor<number>) {
   createEffect(() => {
     if (typeof delay() !== 'number' || delay() < 0) return;
 
-    const timerInstance = setTimeout(callback, delay());
+    const timeout = setTimeout(callback, delay());
 
     onCleanup(() => {
-      clearTimeout(timerInstance);
+      clearTimeout(timeout);
     });
   });
 }

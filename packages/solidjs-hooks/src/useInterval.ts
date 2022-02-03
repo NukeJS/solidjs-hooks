@@ -1,14 +1,20 @@
 import type { Accessor } from 'solid-js';
 import { createEffect, onCleanup } from 'solid-js';
 
-function useInterval(callback: () => void, interval: Accessor<number>) {
+function useInterval(callback: () => void, delay?: Accessor<number> | null) {
   createEffect(() => {
-    if (typeof interval() !== 'number' || interval() < 0) return;
+    if (
+      delay === null ||
+      delay === undefined ||
+      typeof delay() !== 'number' ||
+      delay() < 0
+    )
+      return;
 
-    const intervalInstance = setInterval(callback, interval());
+    const interval = setInterval(callback, delay());
 
     onCleanup(() => {
-      clearInterval(intervalInstance);
+      clearInterval(interval);
     });
   });
 }

@@ -52,11 +52,83 @@ const Demo = () => {
 
 
 
+### `useInterval`
+
+A declarative interval hook. The interval can be paused by setting the delay to `null`.
+
+#### Usage
+
+```jsx
+import { createSignal } from 'solid-js';
+import { useInterval } from 'solidjs-hooks';
+
+const Demo = () => {
+  const DEFAULT_DELAY = 1000;
+  const [count, setCount] = createSignal(0);
+  const [delay, setDelay] = createSignal(DEFAULT_DELAY);
+
+  useInterval(() => {
+    setCount((prevCount) => prevCount + 1);
+  }, delay);
+
+  const toggleInterval = () => {
+    setDelay((prevDelay) => prevDelay ? null : DEFAULT_DELAY)
+  }
+
+  return (
+    <div>
+      <p>Count: {count()}</p>
+      <div>
+        <button onClick={() => toggleInterval()}>
+          Toggle Interval
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+
+
 ### `useNumber`
 
 SolidJS state hook that tracks a numeric value.
 
 This is an alias of [`useCounter`](#usecounter).
+
+
+
+### `useTimeout`
+
+A declarative timeout hook. When the `delay` changes, it will rerun.
+
+#### Usage
+
+```jsx
+import { createSignal } from 'solid-js';
+import { useTimeout } from 'solidjs-hooks';
+
+const Demo = () => {
+  const [count, setCount] = createSignal(0);
+  const [delay, setDelay] = createSignal(1000);
+
+  useTimeout(() => {
+    setCount((prevCount) => prevCount + 1);
+  }, delay)
+
+  return (
+    <div>
+      <p>Count is {count()}</p>
+      <button onClick={() => setDelay((prevDelay) => prevDelay + 1000)}>
+        Increase timeout delay
+      </button>
+      <button onClick={() => setDelay((prevDelay) => prevDelay - 1000)}>
+        Decrease timeout delay
+      </button>
+    </div>
+  )
+}
+```
 
 
 
