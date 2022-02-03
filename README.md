@@ -13,4 +13,4 @@ yarn add solid-hooks
 
 ## Usage
 
-Usage documentation can be found [here](/packages/solid-hooks).
+Usage documentation can be found [here](/packages/solidjs-hooks).
