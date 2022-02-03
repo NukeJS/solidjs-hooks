@@ -6,9 +6,9 @@ A collection of useful SolidJS hooks.
 
 ```bash
 # Using NPM
-npm install solid-hooks
+npm install solidjs-hooks
 # Using Yarn
-yarn add solid-hooks
+yarn add solidjs-hooks
 ```
 
 ## Usage
