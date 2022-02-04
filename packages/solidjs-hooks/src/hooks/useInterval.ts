@@ -5,7 +5,7 @@ import { access, isDefined } from '../utils';
 function useInterval(
   callback: () => void,
   delay?: MaybeAccessor<number> | null
-) {
+): void {
   createEffect(() => {
     const _delay = access(delay);
     if (!isDefined(_delay) || typeof _delay !== 'number' || _delay < 0) return;

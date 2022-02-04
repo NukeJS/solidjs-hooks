@@ -13,7 +13,7 @@ const DEFAULT_OPTIONS: TitleOptions = {
 function useTitle(
   title: MaybeAccessor<string>,
   options: TitleOptions = DEFAULT_OPTIONS
-) {
+): void {
   const _title = isBrowser ? document.title : '';
 
   createEffect(() => {
