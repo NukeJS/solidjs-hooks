@@ -54,7 +54,7 @@ const Demo = () => {
 
 ### `useEffect`
 
-A React-like functionality for the `createEffect` function that SolidJS provides.
+A React-like functionality for the `createEffect` hook that SolidJS provides.
 
 #### Usage
 
