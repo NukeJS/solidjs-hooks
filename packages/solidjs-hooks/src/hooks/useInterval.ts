@@ -1,12 +1,16 @@
-import type { Accessor } from 'solid-js';
+import type { MaybeAccessor } from '../types';
 import { createEffect, onCleanup } from 'solid-js';
-import { isDefined } from '../utils';
+import { access, isDefined } from '../utils';
 
-function useInterval(callback: () => void, delay?: Accessor<number> | null) {
+function useInterval(
+  callback: () => void,
+  delay?: MaybeAccessor<number> | null
+) {
   createEffect(() => {
-    if (!isDefined(delay) || typeof delay() !== 'number' || delay() < 0) return;
+    const _delay = access(delay);
+    if (!isDefined(_delay) || typeof _delay !== 'number' || _delay < 0) return;
 
-    const interval = setInterval(callback, delay());
+    const interval = setInterval(callback, _delay);
 
     onCleanup(() => {
       clearInterval(interval);
