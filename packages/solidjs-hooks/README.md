@@ -52,6 +52,44 @@ const Demo = () => {
 
 
 
+### `useEffect`
+
+A React-like functionality for the `createEffect` function that SolidJS provides.
+
+#### Usage
+
+```jsx
+import { createSignal } from 'solid-js';
+import { useEffect } from 'solid-js-hooks';
+
+const Demo = () => {
+  const [count, setCount] = createSignal(0);
+  const [delay, setDelay] = createSignal(1000);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCount((prevCount) => prevCount + 1);
+    }, delay());
+
+    return () => clearInterval(interval);
+  });
+
+  return (
+    <div>
+      <p>Count is {count()}</p>
+      <button onClick={() => setDelay((prevDelay) => prevDelay + 1000)}>
+        Increase interval delay
+      </button>
+      <button onClick={() => setDelay((prevDelay) => prevDelay - 1000)}>
+        Decrease interval delay
+      </button>
+    </div>
+  )
+}
+```
+
+
+
 ### `useInterval`
 
 A declarative interval hook. The interval can be paused by setting the delay to `null`.
@@ -72,7 +110,7 @@ const Demo = () => {
   }, delay);
 
   const toggleInterval = () => {
-    setDelay((prevDelay) => prevDelay ? null : DEFAULT_DELAY)
+    setDelay((prevDelay) => prevDelay ? null : DEFAULT_DELAY);
   }
 
   return (
@@ -98,6 +136,12 @@ This is an alias of [`useCounter`](#usecounter).
 
 
 
+### `useState`
+
+This is an alias of the built-in `createSignal` hook in SolidJS. 
+
+
+
 ### `useTimeout`
 
 A declarative timeout hook. When the `delay` changes, it will rerun.
@@ -114,7 +158,7 @@ const Demo = () => {
 
   useTimeout(() => {
     setCount((prevCount) => prevCount + 1);
-  }, delay)
+  }, delay);
 
   return (
     <div>
