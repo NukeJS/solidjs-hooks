@@ -1,6 +1,6 @@
-import type { Accessor } from 'solid-js';
+import type { MaybeAccessor } from '../types';
 import { createEffect, onCleanup } from 'solid-js';
-import { isBrowser } from '../utils';
+import { isBrowser, access } from '../utils';
 
 export interface TitleOptions {
   restoreOnCleanup?: boolean;
@@ -11,13 +11,13 @@ const DEFAULT_OPTIONS: TitleOptions = {
 };
 
 function useTitle(
-  title: Accessor<string>,
+  title: MaybeAccessor<string>,
   options: TitleOptions = DEFAULT_OPTIONS
 ) {
   const _title = isBrowser ? document.title : '';
 
   createEffect(() => {
-    document.title = title();
+    document.title = access(title);
   });
 
   onCleanup(() => {
