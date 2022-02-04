@@ -176,6 +176,36 @@ const Demo = () => {
 
 
 
+### `useTitle`
+
+SolidJS side-effect hook that sets the title of the page.
+
+#### Usage
+
+```jsx
+import { createSignal } from 'solid-js';
+import { useTitle } from 'solidjs-hooks';
+
+const Demo = () => {
+  const [title, setTitle] = createSignal(document.title);
+
+  // Also accepts a string instead of an Accessor.
+  useTitle(title);
+
+  return (
+    <div>
+      <p>Document title is: {title()}</p>
+      <form>
+        <label for="title">Change document title:</label>
+        <input type="text" id="title" onChange={(e) => setTitle(e.currentTarget.value)}/>
+      </form>
+    </div>
+  )
+}
+```
+
+
+
 ### `useToggle`
 
 SolidJS state hook that tracks the value of a boolean.
