@@ -1,6 +1,5 @@
 import type { Accessor } from 'solid-js';
 import { createEffect, onCleanup } from 'solid-js';
-
 import { isDefined } from '../utils';
 
 function useInterval(callback: () => void, delay?: Accessor<number> | null) {

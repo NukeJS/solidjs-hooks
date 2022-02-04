@@ -1,5 +1,4 @@
 import { createEffect, onCleanup } from 'solid-js';
-
 import { isDefined, isFunction } from '../utils';
 
 function useEffect(callback: () => void | Function) {
