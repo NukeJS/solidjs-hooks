@@ -1,3 +1,5 @@
+import type { MaybeAccessor, MaybeAccessorValue } from '../types';
+
 export function isDefined<T>(value: T | undefined | null): value is T {
   return typeof value !== 'undefined' && value !== null;
 }
@@ -11,3 +13,9 @@ export const isBrowser = !!(
   window.document &&
   window.document.createElement
 );
+
+export function access<T extends MaybeAccessor<any>>(
+  value: T
+): MaybeAccessorValue<T> {
+  return isFunction(value) ? value() : value;
+}
