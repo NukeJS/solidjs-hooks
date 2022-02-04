@@ -60,7 +60,7 @@ A React-like functionality for the `createEffect` hook that SolidJS provides.
 
 ```jsx
 import { createSignal } from 'solid-js';
-import { useEffect } from 'solid-js-hooks';
+import { useEffect } from 'solidjs-hooks';
 
 const Demo = () => {
   const [count, setCount] = createSignal(0);
