@@ -17,6 +17,6 @@
   "dependencies": {
     "solid-app-router": "^0.2.1",
     "solid-js": "^1.3.3",
-    "solidjs-hooks": "^0.0.8"
+    "solidjs-hooks": "^0.0.9"
   }
 }
