@@ -8,11 +8,7 @@ export function isFunction<T>(value: T | Function): value is Function {
   return typeof value === 'function';
 }
 
-export const isBrowser = !!(
-  typeof window !== 'undefined' &&
-  window.document &&
-  window.document.createElement
-);
+export const isBrowser = typeof window !== 'undefined';
 
 export function access<T extends MaybeAccessor<any>>(
   value: T
