@@ -2,7 +2,8 @@
   "name": "solidjs-hooks-workspace",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "demo/*"
   ],
   "devDependencies": {
     "@types/node": "^17.0.14",
