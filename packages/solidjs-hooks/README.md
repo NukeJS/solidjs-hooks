@@ -210,7 +210,7 @@ const Demo = () => {
 
 SolidJS state hook that tracks the value of a boolean.
 
-`useBoolean` is an alias for `useToggle`
+`useBoolean` is an alias for `useToggle`.
 
 #### Usage
 
@@ -226,6 +226,29 @@ const Demo = () => {
       <button onClick={() => toggle()}>Toggle</button>
       <button onClick={() => toggle(true)}>Turn On</button>
       <button onClick={() => toggle(false)}>Turn Off</button>
+    </div>
+  )
+}
+```
+
+
+
+### `useWindowSize`
+
+SolidJS sensor hook that tracks dimensions of the browser window.
+
+#### Usage
+
+```jsx
+import { useWindowSize } from 'solidjs-hooks';
+
+const Demo = () => {
+  const [width, height] = useWindowSize();
+
+  return (
+    <div>
+      <p>Window width: {width()}</p>
+      <p>Window height: {height()}</p>
     </div>
   )
 }

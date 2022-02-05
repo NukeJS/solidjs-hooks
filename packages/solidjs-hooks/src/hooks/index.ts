@@ -7,3 +7,4 @@ export { default as useState } from './useState';
 export { default as useTimeout } from './useTimeout';
 export { default as useTitle } from './useTitle';
 export { default as useToggle } from './useToggle';
+export { default as useWindowSize } from './useWindowSize';
