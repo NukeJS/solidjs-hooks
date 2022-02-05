@@ -243,7 +243,7 @@ SolidJS sensor hook that tracks dimensions of the browser window.
 import { useWindowSize } from 'solidjs-hooks';
 
 const Demo = () => {
-  const [width, height] = useWindowSize();
+  const { width, height } = useWindowSize();
 
   return (
     <div>

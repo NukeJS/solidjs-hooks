@@ -1,12 +1,11 @@
 import type { Accessor } from 'solid-js';
-import {
-  createEffect,
-  onCleanup,
-  createSignal,
-  createRenderEffect,
-} from 'solid-js';
+import { createSignal, createRenderEffect } from 'solid-js';
+import { useEffect } from './';
 
-function useWindowSize(): [Accessor<number>, Accessor<number>] {
+function useWindowSize(): {
+  width: Accessor<number>;
+  height: Accessor<number>;
+} {
   const [width, setWidth] = createSignal(0);
   const [height, setHeight] = createSignal(0);
 
@@ -15,19 +14,17 @@ function useWindowSize(): [Accessor<number>, Accessor<number>] {
     setHeight(window.innerHeight);
   };
 
-  createEffect(() => {
+  useEffect(() => {
     window.addEventListener('resize', handler);
 
-    onCleanup(() => {
-      window.removeEventListener('resize', handler);
-    });
+    return () => window.removeEventListener('resize', handler);
   });
 
   createRenderEffect(() => {
     handler();
   });
 
-  return [width, height];
+  return { width, height };
 }
 
 export default useWindowSize;

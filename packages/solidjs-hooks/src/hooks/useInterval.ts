@@ -1,20 +1,18 @@
 import type { MaybeAccessor } from '../types';
-import { createEffect, onCleanup } from 'solid-js';
+import { useEffect } from './';
 import { access, isDefined } from '../utils';
 
 function useInterval(
   callback: () => void,
   delay?: MaybeAccessor<number> | null
 ): void {
-  createEffect(() => {
+  useEffect(() => {
     const _delay = access(delay);
     if (!isDefined(_delay) || typeof _delay !== 'number' || _delay < 0) return;
 
     const interval = setInterval(callback, _delay);
 
-    onCleanup(() => {
-      clearInterval(interval);
-    });
+    return () => clearInterval(interval);
   });
 }
 
