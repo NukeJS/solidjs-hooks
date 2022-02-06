@@ -75,6 +75,7 @@ const Demo = () => {
       <button onClick={() => decrement(5)}>Decrement (-5)</button>
       <button onClick={() => set(100)}>Set to 100</button>
       <button onClick={() => reset()}>Reset</button>
+      <button onClick={() => reset(25)}>Reset to 25</button>
     </div>
   )
 }

@@ -6,36 +6,46 @@ interface CounterActions {
   increment: (amount?: number) => void;
   decrement: (amount?: number) => void;
   set: (amount: number) => void;
-  reset: () => void;
+  reset: (amount?: number) => void;
 }
 
 function useCounter(initialValue: number = 0): CounterActions {
   const [count, setCount] = createSignal(initialValue);
 
+  const increment = (amount: number = 1) => {
+    if (typeof amount !== 'number') {
+      console.error(`amount has to be a number, got "${typeof amount}".`);
+    }
+
+    setCount((prevCount) => prevCount + amount);
+  };
+
+  const decrement = (amount: number = 1) => {
+    if (typeof amount !== 'number') {
+      console.error(`amount has to be a number, got "${typeof amount}".`);
+    }
+
+    setCount((prevCount) => prevCount - amount);
+  };
+
+  const set = (amount: number) => {
+    if (typeof amount !== 'number') {
+      console.error(`amount has to be a number, got "${typeof amount}".`);
+    }
+
+    setCount(amount);
+  };
+
+  const reset = (amount: number = initialValue) => {
+    set(amount);
+  };
+
   return {
     count,
-    increment: (amount: number = 1) => {
-      if (typeof amount !== 'number') {
-        console.error(`amount has to be a number, got "${typeof amount}".`);
-      }
-
-      setCount((prevCount) => prevCount + amount);
-    },
-    decrement: (amount: number = 1) => {
-      if (typeof amount !== 'number') {
-        console.error(`amount has to be a number, got "${typeof amount}".`);
-      }
-
-      setCount((prevCount) => prevCount - amount);
-    },
-    set: (amount: number) => {
-      if (typeof amount !== 'number') {
-        console.error(`amount has to be a number, got "${typeof amount}".`);
-      }
-
-      setCount(amount);
-    },
-    reset: () => setCount(initialValue),
+    increment,
+    decrement,
+    set,
+    reset,
   };
 }
 

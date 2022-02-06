@@ -15,3 +15,5 @@ export function access<T extends MaybeAccessor<any>>(
 ): MaybeAccessorValue<T> {
   return isFunction(value) ? value() : value;
 }
+
+export function noop() {}
