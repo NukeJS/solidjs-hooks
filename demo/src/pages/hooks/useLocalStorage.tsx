@@ -2,28 +2,13 @@ import type { Component } from 'solid-js';
 import { useLocalStorage } from 'solidjs-hooks';
 
 const HookPage: Component = () => {
-  const [state, set, remove] = useLocalStorage('user', {
-    firstName: 'Ronnie',
-    lastName: 'Waebers',
-  });
+  const [value, setValue, remove] = useLocalStorage('my-key', 'foo');
 
   return (
     <div>
-      <p>Local storage value: {JSON.stringify(state())}</p>
-      <input
-        type="text"
-        value={state().firstName}
-        onInput={(e) => {
-          set({ ...state(), firstName: e.currentTarget.value });
-        }}
-      />
-      <input
-        type="text"
-        value={state().lastName}
-        onInput={(e) => {
-          set({ ...state(), lastName: e.currentTarget.value });
-        }}
-      />
+      <div>Value: {value()}</div>
+      <button onClick={() => setValue('bar')}>bar</button>
+      <button onClick={() => setValue('baz')}>baz</button>
       <button onClick={() => remove()}>Remove</button>
     </div>
   );
