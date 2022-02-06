@@ -159,11 +159,61 @@ const Demo = () => {
 
 
 
+### `useLocalStorage`
+
+SolidJS side-effect hook that manages a single `localStorage` key.
+
+#### Usage
+
+```jsx
+import { useLocalStorage } from 'solidjs-hooks';
+
+const Demo = () => {
+  const [value, setValue, remove] = useLocalStorage('my-key', 'foo');
+
+  return (
+    <div>
+      <div>Value: {value()}</div>
+      <button onClick={() => setValue('bar')}>bar</button>
+      <button onClick={() => setValue('baz')}>baz</button>
+      <button onClick={() => remove()}>Remove</button>
+    </div>
+  )
+}
+```
+
+
+
 ### `useNumber`
 
 SolidJS state hook that tracks a numeric value.
 
 This is an alias of [`useCounter`](#usecounter).
+
+
+
+### `useSessionStorage`
+
+SolidJS side-effect hook that manages a single `sessionStorage` key.
+
+#### Usage
+
+```jsx
+import { useSessionStorage } from 'solidjs-hooks';
+
+const Demo = () => {
+  const [value, setValue, remove] = useSessionStorage('my-key', 'foo');
+
+  return (
+    <div>
+      <div>Value: {value()}</div>
+      <button onClick={() => setValue('bar')}>bar</button>
+      <button onClick={() => setValue('baz')}>baz</button>
+      <button onClick={() => remove()}>Remove</button>
+    </div>
+  )
+}
+```
 
 
 
