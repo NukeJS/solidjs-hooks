@@ -14,7 +14,7 @@ function useCounter(initialValue: number = 0): CounterActions {
 
   const increment = (amount: number = 1) => {
     if (typeof amount !== 'number') {
-      console.error(`amount has to be a number, got "${typeof amount}".`);
+      throw new Error(`amount has to be a number, got "${typeof amount}".`);
     }
 
     setCount((prevCount) => prevCount + amount);
@@ -22,7 +22,7 @@ function useCounter(initialValue: number = 0): CounterActions {
 
   const decrement = (amount: number = 1) => {
     if (typeof amount !== 'number') {
-      console.error(`amount has to be a number, got "${typeof amount}".`);
+      throw new Error(`amount has to be a number, got "${typeof amount}".`);
     }
 
     setCount((prevCount) => prevCount - amount);
@@ -30,7 +30,7 @@ function useCounter(initialValue: number = 0): CounterActions {
 
   const set = (amount: number) => {
     if (typeof amount !== 'number') {
-      console.error(`amount has to be a number, got "${typeof amount}".`);
+      throw new Error(`amount has to be a number, got "${typeof amount}".`);
     }
 
     setCount(amount);
