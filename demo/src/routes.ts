@@ -31,6 +31,14 @@ const routes: RouteDefinition[] = [
     component: lazy(() => import('./pages/hooks/useInterval')),
   },
   {
+    path: '/use-local-storage',
+    component: lazy(() => import('./pages/hooks/useLocalStorage')),
+  },
+  {
+    path: '/use-session-storage',
+    component: lazy(() => import('./pages/hooks/useSessionStorage')),
+  },
+  {
     path: '/use-timeout',
     component: lazy(() => import('./pages/hooks/useTimeout')),
   },
