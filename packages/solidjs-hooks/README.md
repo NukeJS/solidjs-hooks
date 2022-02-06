@@ -21,6 +21,37 @@ This is an alias of [`useToggle`](#usetoggle).
 
 
 
+### `useCookie`
+
+SolidJS hook that returns the current value of a cookie, a callback to set the cookie's value, and a callback to remove the cookie.
+
+#### Usage
+
+```jsx
+import { createSignal } from 'solid-js';
+import { useCookie } from 'solidjs-hooks';
+
+const Demo = () => {
+  const [cookie, setCookie, removeCookie] = useCookie('my-cookie');
+  const [count, setCount] = createSignal(0);
+
+  const setCookieHandler = () => {
+    setCount((prevCount) => prevCount + 1);
+    setCookie(`my-awesome-cookie-${cookie()}`);
+  }
+
+  return (
+    <div>
+      <p>Cookie value: {cookie()}</p>
+      <button onClick={() => setCookieHandler()}>Update Cookie</button>
+      <button onClick={() => removeCookie()}>Delete Cookie</button>
+    </div>
+  )
+}
+```
+
+
+
 ### `useCounter`
 
 SolidJS state hook that tracks a numeric value.
@@ -44,7 +75,6 @@ const Demo = () => {
       <button onClick={() => decrement(5)}>Decrement (-5)</button>
       <button onClick={() => set(100)}>Set to 100</button>
       <button onClick={() => reset()}>Reset</button>
-      <button onClick={() => reset(25)}>Reset to 25</button>
     </div>
   )
 }

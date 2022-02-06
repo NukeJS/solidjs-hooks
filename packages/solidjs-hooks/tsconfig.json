@@ -3,6 +3,7 @@
   "compilerOptions": {
     "lib": ["DOM"],
     "declaration": true,
+    "esModuleInterop": true,
     "jsx": "react"
   }
 }

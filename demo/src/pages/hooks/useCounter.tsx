@@ -1,27 +1,18 @@
 import type { Component } from 'solid-js';
-import { createSignal } from 'solid-js';
-import { useInterval } from 'solidjs-hooks';
+import { useCounter } from 'solidjs-hooks';
 
 const HookPage: Component = () => {
-  const DEFAULT_DELAY = 1000;
-  const [count, setCount] = createSignal(0);
-  const [delay, setDelay] = createSignal(DEFAULT_DELAY);
-
-  useInterval(() => {
-    setCount((prevCount) => prevCount + 1);
-  }, delay);
-
-  const toggleInterval = () => {
-    // @ts-ignore
-    setDelay((prevDelay) => (prevDelay ? null : DEFAULT_DELAY));
-  };
+  const { count, increment, decrement, set, reset } = useCounter();
 
   return (
     <div>
-      <p>Count: {count()}</p>
-      <div>
-        <button onClick={() => toggleInterval()}>Toggle Interval</button>
-      </div>
+      <p>Current count: {count()}</p>
+      <button onClick={() => increment()}>Increment</button>
+      <button onClick={() => increment(5)}>Increment (+5)</button>
+      <button onClick={() => decrement()}>Decrement</button>
+      <button onClick={() => decrement(5)}>Decrement (-5)</button>
+      <button onClick={() => set(100)}>Set to 100</button>
+      <button onClick={() => reset()}>Reset</button>
     </div>
   );
 };

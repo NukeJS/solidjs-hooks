@@ -15,6 +15,10 @@ const routes: RouteDefinition[] = [
     component: lazy(() => import('./pages/hooks/useToggle')),
   },
   {
+    path: '/use-cookie',
+    component: lazy(() => import('./pages/hooks/useCookie')),
+  },
+  {
     path: '/use-counter',
     component: lazy(() => import('./pages/hooks/useCounter')),
   },
