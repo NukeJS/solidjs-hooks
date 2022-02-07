@@ -2,12 +2,22 @@
   "name": "solidjs-hooks",
   "description": "A collection of useful SolidJS hooks.",
   "private": false,
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "MIT",
   "scripts": {
     "build": "pridepack clean && pridepack build"
   },
-  "author": "NukeJS",
+  "author": {
+    "name": "NukeJS",
+    "url": "https://github.com/NukeJS"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NukeJS/solidjs-hooks"
+  },
+  "bugs": {
+    "url": "https://github.com/NukeJS/solidjs-hooks/issues"
+  },
   "keywords": [
     "solid-js",
     "hooks",
