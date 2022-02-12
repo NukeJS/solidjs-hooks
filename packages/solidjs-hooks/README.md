@@ -1,20 +1,7 @@
+# solidjs-hooks
+
 A collection of useful SolidJS hooks.
 
-- [Installation](#installation)
-- [Hooks](#hooks)
-  - [`useBoolean`](#useboolean)
-  - [`useCookie`](#usecookie)
-  - [`useCounter`](#usecounter)
-  - [`useEffect`](#useeffect)
-  - [`useInterval`](#useinterval)
-  - [`useLocalStorage`](#uselocalstorage)
-  - [`useNumber`](#usenumber)
-  - [`useSessionStorage`](#usesessionstorage)
-  - [`useState`](#usestate)
-  - [`useTimeout`](#usetimeout)
-  - [`useTitle`](#usetitle)
-  - [`useToggle`](#usetoggle)
-  - [`useWindowSize`](#usewindowsize)
 ## Installation
 
 ```bash
@@ -24,7 +11,7 @@ npm install solidjs-hooks
 yarn add solidjs-hooks
 ```
 
-## Hooks
+## Usage
 
 ### `useBoolean`
 
@@ -37,6 +24,8 @@ This is an alias of [`useToggle`](#usetoggle).
 ### `useCookie`
 
 SolidJS hook that returns the current value of a cookie, a callback to set the cookie's value, and a callback to remove the cookie.
+
+#### Usage
 
 ```jsx
 import { createSignal } from 'solid-js';
@@ -69,6 +58,8 @@ SolidJS state hook that tracks a numeric value.
 
 `useNumber` is an alias for `useCounter`.
 
+#### Usage
+
 ```jsx
 import { useCounter } from 'solidjs-hooks';
 
@@ -95,6 +86,8 @@ const Demo = () => {
 ### `useEffect`
 
 A React-like functionality for the `createEffect` hook that SolidJS provides.
+
+#### Usage
 
 ```jsx
 import { createSignal } from 'solid-js';
@@ -132,6 +125,8 @@ const Demo = () => {
 
 A declarative interval hook. The interval can be paused by setting the delay to `null`.
 
+#### Usage
+
 ```jsx
 import { createSignal } from 'solid-js';
 import { useInterval } from 'solidjs-hooks';
@@ -168,6 +163,8 @@ const Demo = () => {
 
 SolidJS side-effect hook that manages a single `localStorage` key.
 
+#### Usage
+
 ```jsx
 import { useLocalStorage } from 'solidjs-hooks';
 
@@ -199,6 +196,8 @@ This is an alias of [`useCounter`](#usecounter).
 
 SolidJS side-effect hook that manages a single `sessionStorage` key.
 
+#### Usage
+
 ```jsx
 import { useSessionStorage } from 'solidjs-hooks';
 
@@ -227,6 +226,8 @@ This is an alias of the built-in `createSignal` hook in SolidJS.
 ### `useTimeout`
 
 A declarative timeout hook. When the `delay` changes, it will rerun.
+
+#### Usage
 
 ```jsx
 import { createSignal } from 'solid-js';
@@ -260,6 +261,8 @@ const Demo = () => {
 
 SolidJS side-effect hook that sets the title of the page.
 
+#### Usage
+
 ```jsx
 import { createSignal } from 'solid-js';
 import { useTitle } from 'solidjs-hooks';
@@ -290,6 +293,8 @@ SolidJS state hook that tracks the value of a boolean.
 
 `useBoolean` is an alias for `useToggle`.
 
+#### Usage
+
 ```jsx
 import { useToggle } from 'solidjs-hooks';
 
@@ -312,6 +317,8 @@ const Demo = () => {
 ### `useWindowSize`
 
 SolidJS sensor hook that tracks dimensions of the browser window.
+
+#### Usage
 
 ```jsx
 import { useWindowSize } from 'solidjs-hooks';
